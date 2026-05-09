@@ -6,6 +6,7 @@ from .config import ProductionConfig
 from .routes.health import health_bp
 from .routes.image import image_bp
 from .routes.search import search_bp
+from .routes.video import video_bp
 
 
 def create_app(config=None):
@@ -19,6 +20,7 @@ def create_app(config=None):
     app.register_blueprint(health_bp)
     app.register_blueprint(image_bp)
     app.register_blueprint(search_bp)
+    app.register_blueprint(video_bp)
 
     @app.before_request
     def auth_gate():
