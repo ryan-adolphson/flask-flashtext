@@ -7,10 +7,10 @@ image_bp = Blueprint("image", __name__)
 
 @image_bp.post("/image")
 def post_image():
-    if "image" not in request.files:
+    if "file" not in request.files:
         abort(400, description={"error": "No image field in request", "code": "MISSING_IMAGE"})
 
-    file = request.files["image"]
+    file = request.files["file"]
     if file.filename == "":
         abort(400, description={"error": "No file selected", "code": "MISSING_IMAGE"})
 

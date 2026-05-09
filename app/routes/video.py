@@ -7,10 +7,10 @@ video_bp = Blueprint("video", __name__)
 
 @video_bp.post("/video")
 def post_video():
-    if "video" not in request.files:
+    if "file" not in request.files:
         abort(400, description={"error": "No video field in request", "code": "MISSING_VIDEO"})
 
-    file = request.files["video"]
+    file = request.files["file"]
     if file.filename == "":
         abort(400, description={"error": "No file selected", "code": "MISSING_VIDEO"})
 
