@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 from .auth import require_api_key
 from .config import ProductionConfig
@@ -11,6 +12,8 @@ def create_app(config=None):
 
     cfg = config or ProductionConfig
     app.config.from_object(cfg)
+
+    CORS(app)
 
     app.register_blueprint(health_bp)
     app.register_blueprint(search_bp)
