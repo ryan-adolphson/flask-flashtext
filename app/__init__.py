@@ -4,6 +4,7 @@ from flask_cors import CORS
 from .auth import require_api_key
 from .config import ProductionConfig
 from .routes.health import health_bp
+from .routes.image import image_bp
 from .routes.search import search_bp
 
 
@@ -16,6 +17,7 @@ def create_app(config=None):
     CORS(app)
 
     app.register_blueprint(health_bp)
+    app.register_blueprint(image_bp)
     app.register_blueprint(search_bp)
 
     @app.before_request
