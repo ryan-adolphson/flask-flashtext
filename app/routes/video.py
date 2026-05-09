@@ -33,4 +33,4 @@ def post_video():
         api_key=api_key,
         model_name=current_app.config["GEMINI_MODEL"],
     )
-    return jsonify({"analysis": result}), 200
+    return jsonify(result), 200
